@@ -86,8 +86,10 @@ func (l *NodeInfo) BeforeCreate(scope *gorm.Scope) error {
 
 type Node struct {
 	ID          uint `gorm:"primary_key"`
-	TrafficRate float64
-	Level       int `gorm:"column:level"`
+	//TrafficRate float64
+	TrafficRate float64 `gorm:"traffic_rate"`
+	NodeLevel   int `gorm:"column:level"`
+	NodeGroup   int `gorm:"column:node_group"`
 }
 
 func (*Node) TableName() string {
@@ -102,7 +104,7 @@ func (db *DB) GetAllUsers() ([]UserModel, error) {
 	users := make([]UserModel, 0)
 	cfg,_ := getConfig()
 	node,_ := db.GetNode(cfg.NodeID)
-	db.DB.Select("id, vmess_id, username").Where("enable = 1 AND status = 1 AND u + d < transfer_enable AND level >= ?", node.Level).Find(&users)
+	db.DB.Select("id, vmess_id, username").Where("enable = 1 AND status = 1 AND u + d < transfer_enable AND level >= ? AND node_group = ?", node.NodeLevel ,node.NodeGroup).Find(&users)
 	return users, nil
 }
 
