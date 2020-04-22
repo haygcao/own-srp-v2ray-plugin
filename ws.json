@@ -64,7 +64,7 @@
   },
   "ssrpanel": {
     "nodeId": nodeidnodeid,
-    "checkRate": 60,
+    "checkRate": 360,
     "ignoreEmptyVmessID": true,
     "user": {
       "inboundTag": "proxy",
