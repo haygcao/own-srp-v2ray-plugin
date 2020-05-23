@@ -23,7 +23,7 @@ you may want to see docs, all the things as same as the official docs except ins
 [V2ray installation](https://www.v2ray.com/en/welcome/install.html)
 
 ```
-curl -L -s https://raw.githubusercontent.com/haygcao/own-srp-v2ray-plugin/master/install-release.sh | sudo ba sh
+curl -L -s https://raw.githubusercontent.com/haygcao/own-srp-v2ray-plugin/master/install-release.sh | sudo bash
 ```
 
 #### Uninstall
